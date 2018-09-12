@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>LiPo Battery Charge</title>
+		<meta charset='utf-8' />
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="author" content="Lerry William">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="Content-Type" content="charset=UTF-8" />
+		<link rel="stylesheet" href="css/skeleton.css">
+		<link rel="icon" type="image/png" href="icons/favicon-32x32.png" sizes="32x32" />
+		<meta name="application-name" content="LiPO Battery Charge"/>
+		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	</head>
+	<body>
+		<nav class="nav cf" style="z-index:100;">
+			<div class="row">
+				<center>
+					<div class="twelve columns">
+						<img src="icons/favicon-32x32.png">
+					</div>
+				</center>
+			</div>
+		</nav>
+		<div class="row">
+			<center>
+				<p>Li-Po Battery Charge Calculator</p>
+			</center>
+		</div>
+
+		<!-- calculation form here -->
+			<div class="row">
+				<div class="twelve columns">
+					<select class="u-full-width" title="batteryVoltage" id="cellCount">
+					<option value="" selected></option>
+					<option value="1s">1s 3.7v</option>
+					<option value="2s">2s 7.4v</option>
+					<option value="3s">3s 11.1v</option>
+					<option value="4s">4s 14.8v</option>
+					<option value="5s">5s 18.5v</option>
+					<option value="6s">6s 22.2v</option>
+					<option value="7s">7s 25.9v</option>
+					<option value="8s">8s 29.6v</option>
+					<option value="9s">9s 33.3v</option>
+					<option value="10s">10s 37v</option>
+					<option value="11s">11s 40.7v</option>
+					<option value="12s">12s 44.4v</option>
+					</select>
+				</div>
+			</div>
+			<div class="row">
+				<div class="three columns">
+					<label>Number of Battery packs:</label>
+					<input type="number" class="u-full-width" placeholder="0" id="numPack">
+				</div>
+				<div class="three columns">
+					<label>Capacity (mAh):</label>
+					<input type="number" class="u-full-width" placeholder="0" id="mAh">
+				</div>
+				<div class="three columns">
+					<label>Cells Charge Rate (C):</label>
+					<input type="number" class="u-full-width" placeholder="0" id="C">
+				</div>
+				<div class="three columns">
+					<label>Discharge Rating (C) :</label>
+					<input type="number" class="u-full-width" placeholder="0" id="discharge">
+				</div>
+			</div>
+
+			<!-- style="display:none" -->
+			<div class="row" style="display:none">
+				<div class="six columns">
+					<label>Cell Numbers (S):</label>
+					<input type="text" class="u-full-width" placeholder="0" id="cellNumbers">
+				</div>
+				<div class="six columns">
+					<label>Pack Voltage (V):</label>
+					<input type="text" class="u-full-width" placeholder="0" id="packVoltage">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="six columns"><button type="button" class="u-full-width button-primary" id="watts_select">Watts Requirements</button></div>
+				<div class="six columns"><button type="button" class="u-full-width button-primary" id="time_select">Maximum Flyting Time</button></div>
+			</div>
+
+			<!-- answer goes here -->
+			<!-- watts -->
+			<div class="row" id="watt_column" style="display:none">
+				<div class="twelve columns">
+					<h4>Charger wattage Estimation</h4>
+				</div>
+				<div class="row">
+					<div class="six columns">
+							<label>Charging Amps (A):</label>
+							<input class="u-full-width" type="text" name="charge_amps" id="charge_amps">
+					</div>
+				</div>
+				<div class="row">
+					<div class="six columns">
+							<label>Required wattage (Watts):</label>
+							<input class="u-full-width" type="text" name="require_watt" id="require_watt">
+					</div>
+				</div>
+			</div>
+
+			<!-- flight time estimation -->
+			<div class="row" id="time_column" style="display:none">
+				<div class="twelve columns">
+					<h4>Maximum Flying Time Estimation</h4>
+				</div>
+				<div class="row">
+					<div class="six columns">
+							<label>Max Sustained Load (A):</label>
+							<input class="u-full-width" type="text" name="max_load" id="max_load">
+					</div>
+				</div>
+				<div class="row">
+					<div class="six columns">
+							<label>80% used (minutes):</label>
+							<input class="u-full-width" type="text" name="flight_time" id="flight_time">
+					</div>
+				</div>
+				<div class="row">
+					<div class="six columns">
+							<label>100% used (minutes):</label>
+							<input class="u-full-width" type="text" name="flight_time2" id="flight_time2">
+					</div>
+				</div>
+			</div>
+
+			<script type="text/javascript" src="js/math.min.js"></script>
+			<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+			<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+			<script type="text/javascript" src="js/calculation.js"></script>
+	</body>
+	<footer>
+			<div class="row">
+				<p align="center">Build with ♥ by <a href="https://github.com/wslerry">LWS</a></p>
+			</div>
+	</footer>
+</html>
