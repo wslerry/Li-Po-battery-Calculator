@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>LiPo Battery Charge</title>
+		<title>LiPo Battery Charge Calculator</title>
 		<meta charset='utf-8' />
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-capable" content="yes">
@@ -12,6 +12,16 @@
 		<link rel="icon" type="image/png" href="icons/favicon-32x32.png" sizes="32x32" />
 		<meta name="application-name" content="LiPO Battery Charge"/>
 		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125651421-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-125651421-1');
+		</script>
+
 	</head>
 	<body>
 		<nav class="nav cf" style="z-index:100;">
@@ -82,7 +92,7 @@
 
 			<div class="row">
 				<div class="six columns"><button type="button" class="u-full-width button-primary" id="watts_select">Watts Requirements</button></div>
-				<div class="six columns"><button type="button" class="u-full-width button-primary" id="time_select">Maximum Flyting Time</button></div>
+				<div class="six columns"><button type="button" class="u-full-width button-primary" id="time_select">Maximum Flying Time</button></div>
 			</div>
 
 			<!-- answer goes here -->
