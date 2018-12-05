@@ -7,7 +7,6 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="author" content="Lerry William">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="Content-Type" content="charset=UTF-8" />
 		<link rel="stylesheet" href="css/skeleton.css">
 		<link rel="icon" type="image/png" href="icons/favicon-32x32.png" sizes="32x32" />
 		<meta name="application-name" content="LiPO Battery Charge"/>
@@ -47,7 +46,7 @@
 		<!-- calculation form here -->
 			<div class="row">
 				<div class="twelve columns">
-					<select class="u-full-width" title="batteryVoltage" id="cellCount">
+					<select class="u-full-width" title="batteryVoltage" onchange=input_params() id="cellCount">
 					<option value="" selected></option>
 					<option value="1s">1s 3.7v</option>
 					<option value="2s">2s 7.4v</option>

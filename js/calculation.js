@@ -1,7 +1,6 @@
 $( "#cellCount" ).click(function() {
   $( "#watt_column" ).hide("fast");
   $( "#time_column" ).hide("fast");
-  input_params()
 });
 
 $( "#numPack" ).click(function() {
@@ -41,64 +40,81 @@ function input_params(){
   }
 
   if(document.getElementById('cellCount').value == "1s") {
+    resetValue()
     document.getElementById('packVoltage').value = "3.7";
     document.getElementById('cellNumbers').value = "1";
   }
 
   if(document.getElementById('cellCount').value == "2s") {
+    resetValue()
     document.getElementById('packVoltage').value = "7.4";
     document.getElementById('cellNumbers').value = "2";
   }
 
   if(document.getElementById('cellCount').value == "3s") {
+    resetValue()
     document.getElementById('packVoltage').value = "11.1";
     document.getElementById('cellNumbers').value = "3";
   }
 
   if(document.getElementById('cellCount').value == "4s"){
+    resetValue()
     document.getElementById('packVoltage').value = "14.8";
     document.getElementById('cellNumbers').value = "4";
   }
 
   if(document.getElementById('cellCount').value == "5s"){
+    resetValue()
     document.getElementById('packVoltage').value = "18.5";
     document.getElementById('cellNumbers').value = "5";
   }
 
   if(document.getElementById('cellCount').value == "6s"){
+    resetValue()
     document.getElementById('packVoltage').value = "22.2";
     document.getElementById('cellNumbers').value = "6";
   }
 
   if(document.getElementById('cellCount').value == "7s"){
+    resetValue()
     document.getElementById('packVoltage').value = "25.9";
     document.getElementById('cellNumbers').value = "7";
   }
 
   if(document.getElementById('cellCount').value == "8s"){
+    resetValue()
     document.getElementById('packVoltage').value = "29.6";
     document.getElementById('cellNumbers').value = "8";
   }
 
   if(document.getElementById('cellCount').value == "9s"){
+    resetValue()
     document.getElementById('packVoltage').value = "33.3";
     document.getElementById('cellNumbers').value = "9";
   }
 
   if(document.getElementById('cellCount').value == "10s"){
+    resetValue()
     document.getElementById('packVoltage').value = "37";
     document.getElementById('cellNumbers').value = "10";
   }
 
   if(document.getElementById('cellCount').value == "11s"){
+    resetValue()
     document.getElementById('packVoltage').value = "40.7";
     document.getElementById('cellNumbers').value = "11";
   }
 
   if(document.getElementById('cellCount').value == "12s"){
+    resetValue()
     document.getElementById('packVoltage').value = "44.4";
     document.getElementById('cellNumbers').value = "12";
   }
+}
+
+function resetValue() {
+  document.getElementById('packVoltage').value = "";
+  document.getElementById('cellNumbers').value = "";
 }
 
 var watts_select = document.getElementById('watts_select');
