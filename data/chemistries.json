@@ -1,0 +1,6 @@
+[
+  { "id": "lipo", "name": "LiPo", "nominal": 3.7, "charge": 4.2, "storage": 3.8, "cutoff": 3.0 },
+  { "id": "liion", "name": "Li-ion", "nominal": 3.6, "charge": 4.2, "storage": 3.7, "cutoff": 2.8 },
+  { "id": "lihv", "name": "LiHV", "nominal": 3.8, "charge": 4.35, "storage": 3.85, "cutoff": 3.0 },
+  { "id": "lifepo4", "name": "LiFePO4", "nominal": 3.2, "charge": 3.65, "storage": 3.3, "cutoff": 2.5 }
+]
