@@ -22,10 +22,10 @@ export function readInputs(els) {
   if (capacityMah <= 0 || dischargeC <= 0 || chargeC <= 0 || avgCurrent <= 0) {
     return { ok: false, message: 'Capacity, C-rates and average current must be greater than 0.' };
   }
-  if (dodPercent <= 0 || dodPercent > 100) {
+  if (!(dodPercent > 0 && dodPercent <= 100)) {
     return { ok: false, message: 'Usable capacity must be between 1 and 100%.' };
   }
-  if (packs < 1) return { ok: false, message: 'Packs charged at once must be at least 1.' };
+  if (!(packs >= 1)) return { ok: false, message: 'Packs charged at once must be at least 1.' };
   if (targetCurrent !== null && targetCurrent <= 0) {
     return { ok: false, message: 'Target current must be greater than 0.' };
   }
