@@ -56,13 +56,22 @@ export function renderResults(container, r) {
     metric('Energy', round(r.pack.energyWh, 1), 'Wh'),
   ]));
 
-  const dischargeSec = section('Discharge & run time', [
-    metric('Max continuous', round(r.discharge.maxCurrentA, 1), 'A'),
-    metric('Run time (usable)', round(r.discharge.runUsableMin, 1), 'min'),
-    metric('Run time (100%)', round(r.discharge.runFullMin, 1), 'min'),
-  ]);
-  if (r.discharge.exceedsMax) {
-    dischargeSec.appendChild(note('Average draw exceeds the pack\'s max continuous current.', true));
+  const hasRunTime = r.discharge.runUsableMin != null;
+  const dischargeMetrics = [metric('Max continuous', round(r.discharge.maxCurrentA, 1), 'A')];
+  if (hasRunTime) {
+    dischargeMetrics.push(
+      metric('Run time (usable)', round(r.discharge.runUsableMin, 1), 'min'),
+      metric('Run time (100%)', round(r.discharge.runFullMin, 1), 'min'),
+    );
+  }
+  const dischargeSec = section('Discharge & run time', dischargeMetrics);
+  if (!hasRunTime) {
+    dischargeSec.appendChild(note('Enter your average current draw to estimate run time — it depends on your motor/ESC and throttle, not the battery label.'));
+  } else {
+    if (r.discharge.exceedsMax) {
+      dischargeSec.appendChild(note('Average draw exceeds the pack\'s max continuous current.', true));
+    }
+    dischargeSec.appendChild(note('Run time (100%) is theoretical — plan around the usable figure.'));
   }
   sections.push(dischargeSec);
 

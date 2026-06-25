@@ -24,58 +24,72 @@
     </p>
 
     <div class="card">
-      <div class="grid">
-        <div class="field">
-          <label for="chemistry">Chemistry</label>
-          <select class="input" id="chemistry"><option value="" selected>Select…</option></select>
+      <fieldset class="field-group">
+        <legend>From your battery label</legend>
+        <div class="grid">
+          <div class="field">
+            <label for="chemistry">Chemistry</label>
+            <select class="input" id="chemistry"><option value="" selected>Select…</option></select>
+          </div>
+          <div class="field">
+            <label for="cells">Cell count (S)</label>
+            <select class="input" id="cells">
+              <option value="" selected>Select…</option>
+              <option value="1">1S</option>
+              <option value="2">2S</option>
+              <option value="3">3S</option>
+              <option value="4">4S</option>
+              <option value="5">5S</option>
+              <option value="6">6S</option>
+              <option value="7">7S</option>
+              <option value="8">8S</option>
+              <option value="9">9S</option>
+              <option value="10">10S</option>
+              <option value="11">11S</option>
+              <option value="12">12S</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="capacity">Capacity (mAh)</label>
+            <input class="input" type="number" id="capacity" min="0" step="any" placeholder="e.g. 2200" />
+          </div>
+          <div class="field">
+            <label for="discharge-c">Discharge rating (C)</label>
+            <input class="input" type="number" id="discharge-c" min="0" step="any" placeholder="e.g. 35" />
+          </div>
         </div>
-        <div class="field">
-          <label for="cells">Cell count (S)</label>
-          <select class="input" id="cells">
-            <option value="" selected>Select…</option>
-            <option value="1">1S</option>
-            <option value="2">2S</option>
-            <option value="3">3S</option>
-            <option value="4">4S</option>
-            <option value="5">5S</option>
-            <option value="6">6S</option>
-            <option value="7">7S</option>
-            <option value="8">8S</option>
-            <option value="9">9S</option>
-            <option value="10">10S</option>
-            <option value="11">11S</option>
-            <option value="12">12S</option>
-          </select>
+      </fieldset>
+
+      <fieldset class="field-group">
+        <legend>Your setup &amp; charging</legend>
+        <div class="grid">
+          <div class="field">
+            <label for="charge-c">Charge rate (C) — optional</label>
+            <input class="input" type="number" id="charge-c" min="0" step="any" placeholder="1 (safe default)" />
+          </div>
+          <div class="field">
+            <label for="avg-current">Average current draw (A) — optional</label>
+            <input class="input" type="number" id="avg-current" min="0" step="any" placeholder="e.g. 18" />
+          </div>
+          <div class="field">
+            <label for="dod">Usable capacity (%)</label>
+            <input class="input" type="number" id="dod" min="1" max="100" step="any" placeholder="80" />
+          </div>
+          <div class="field">
+            <label for="packs">Packs charged at once</label>
+            <input class="input" type="number" id="packs" min="1" step="1" placeholder="1" />
+          </div>
+          <div class="field">
+            <label for="target-current">Target current (A) — optional</label>
+            <input class="input" type="number" id="target-current" min="0" step="any" placeholder="e.g. 40" />
+          </div>
         </div>
-        <div class="field">
-          <label for="capacity">Capacity (mAh)</label>
-          <input class="input" type="number" id="capacity" min="0" step="any" placeholder="0" />
-        </div>
-        <div class="field">
-          <label for="discharge-c">Discharge rating (C)</label>
-          <input class="input" type="number" id="discharge-c" min="0" step="any" placeholder="0" />
-        </div>
-        <div class="field">
-          <label for="charge-c">Charge rate (C)</label>
-          <input class="input" type="number" id="charge-c" min="0" step="any" placeholder="0" />
-        </div>
-        <div class="field">
-          <label for="avg-current">Average current draw (A)</label>
-          <input class="input" type="number" id="avg-current" min="0" step="any" placeholder="0" />
-        </div>
-        <div class="field">
-          <label for="dod">Usable capacity (%)</label>
-          <input class="input" type="number" id="dod" min="1" max="100" step="any" placeholder="80" />
-        </div>
-        <div class="field">
-          <label for="packs">Packs charged at once</label>
-          <input class="input" type="number" id="packs" min="1" step="1" placeholder="1" />
-        </div>
-        <div class="field">
-          <label for="target-current">Target current (A) — optional</label>
-          <input class="input" type="number" id="target-current" min="0" step="any" placeholder="" />
-        </div>
-      </div>
+      </fieldset>
+
+      <p class="hint-line">
+        Average current draw is not printed on the battery — it depends on your motor/ESC and how
+        hard you fly. Leave it blank to skip the run-time estimate; everything else still works.
+      </p>
       <p class="error" id="form-error" role="alert"></p>
     </div>
 
@@ -85,7 +99,7 @@
     </div>
 
     <section class="card guide">
-      <h2>📖 How to Read Your Battery Label</h2>
+      <h2>How to Read Your Battery Label</h2>
       <p>
         LiPo batteries use a compact label format that tells you everything you need to know.
         A typical label looks like this:
@@ -104,7 +118,7 @@
     </section>
 
     <section class="card guide">
-      <h2>🔑 Key Terms</h2>
+      <h2>Key Terms</h2>
       <table class="ref-table">
         <thead>
           <tr><th>Term</th><th>Definition</th></tr>
@@ -125,7 +139,7 @@
     </section>
 
     <section class="card guide">
-      <h2>⚡ Safe LiPo Charging &mdash; Electrical Engineer&rsquo;s Checklist</h2>
+      <h2>Safe LiPo Charging &mdash; Electrical Engineer&rsquo;s Checklist</h2>
       <p class="safety-intro">
         Lithium polymer batteries store enormous energy in a small package. When treated correctly they are safe and reliable.
         The rules below are non-negotiable. This calculator exists to help you stay within them.
@@ -191,12 +205,12 @@
       </div>
 
       <div class="safety-note warn-box">
-        <strong>⚠️ Warning signs of trouble:</strong> excessive heat during charge, hissing sound, swelling/puffing, or voltage that won&rsquo;t rise. If you observe any of these, disconnect immediately and move the battery to a safe area.
+        <strong>Warning signs of trouble:</strong> excessive heat during charge, hissing sound, swelling/puffing, or voltage that won&rsquo;t rise. If you observe any of these, disconnect immediately and move the battery to a safe area.
       </div>
     </section>
 
     <section class="card guide">
-      <h2>📊 Quick Voltage Reference &mdash; LiPo</h2>
+      <h2>Quick Voltage Reference &mdash; LiPo</h2>
       <p>Values for standard LiPo chemistry (3.7&nbsp;V nominal, 4.2&nbsp;V full charge).</p>
       <table class="ref-table">
         <thead>

@@ -36,6 +36,19 @@ input, select, button { font: inherit; }
 
 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); }
 
+.field-group { border: 0; min-width: 0; margin: 0 0 var(--space-4); padding: 0; }
+.field-group:last-of-type { margin-bottom: 0; }
+.field-group legend {
+  padding: 0;
+  margin-bottom: var(--space-2);
+  font-size: .72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--text-muted);
+}
+.hint-line { font-size: .78rem; color: var(--text-muted); margin: var(--space-3) 0 0; }
+
 .result-section { margin-bottom: var(--space-4); }
 .result-section h3 { font-size: .95rem; }
 .metrics { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); }
@@ -138,7 +151,11 @@ input, select, button { font: inherit; }
   font-size: .85rem;
   line-height: 1.5;
 }
-:root[data-theme="dark"] .warn-box,
+:root[data-theme="dark"] .warn-box {
+  background: #2a2310;
+  border-color: #5c4500;
+  color: #e0a52e;
+}
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .warn-box {
     background: #2a2310;

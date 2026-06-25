@@ -33,6 +33,9 @@ Three layers, one-way flow: `chemistries.json → form → calc.js → results`.
 - charger watts = fullV × (packs × chargeCurrent) × 1.15 (headroom)
 - reverse: minC = targetCurrent ÷ (mAh/1000)
 Assumptions: DoD 80% default, CV taper ×1.15, charger headroom ×1.15.
+Optional inputs: chargeC defaults to 1C (safe max); avgCurrent is omittable (it's a
+load property, not on the label) — when blank, run time and the exceeds-max warning
+are hidden and every other output still computes.
 
 ## Security
 Strict CSP (no inline JS/CSS); no jQuery/AdSense/Analytics; no innerHTML from data.

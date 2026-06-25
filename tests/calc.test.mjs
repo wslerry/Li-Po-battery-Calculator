@@ -48,4 +48,15 @@ const r2 = computeBattery(
 assert.equal(r2.discharge.exceedsMax, true);
 assert.equal(r2.sizing, null);
 
+// avgCurrent omitted → no run time, exceedsMax false; label-derived outputs unaffected
+const r3 = computeBattery(
+  { chem: lipo, cells: 6, capacityMah: 5000 },
+  { dischargeC: 20, chargeC: 1, avgCurrent: null, dod: 0.8, packs: 1, targetCurrent: null },
+);
+assert.equal(r3.discharge.runUsableMin, null);
+assert.equal(r3.discharge.runFullMin, null);
+assert.equal(r3.discharge.exceedsMax, false);
+assert.equal(r3.discharge.maxCurrentA, 100);
+assert.equal(r3.charging.chargeCurrentA, 5);
+
 console.log('calc.test passed');

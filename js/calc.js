@@ -79,7 +79,8 @@ export function computeBattery(pack, inputs) {
   const v = packVoltages(cells, chem);
   const wh = energyWh(cells, chem, capacityMah);
   const maxCurrentA = maxContinuousCurrent(capacityMah, dischargeC);
-  const run = runTime(capacityMah, avgCurrent, dod);
+  // avgCurrent is a load property, not a battery spec — only run time needs it.
+  const run = avgCurrent != null ? runTime(capacityMah, avgCurrent, dod) : null;
   const chargeCurrentA = chargeCurrent(capacityMah, chargeC);
   const chargeTimeMin = chargeTime(capacityMah, chargeC);
   const totalChargeCurrentA = packs * chargeCurrentA;
@@ -92,9 +93,9 @@ export function computeBattery(pack, inputs) {
     pack: { ...v, energyWh: wh },
     discharge: {
       maxCurrentA,
-      runUsableMin: run.usableMin,
-      runFullMin: run.fullMin,
-      exceedsMax: avgCurrent > maxCurrentA,
+      runUsableMin: run ? run.usableMin : null,
+      runFullMin: run ? run.fullMin : null,
+      exceedsMax: avgCurrent != null && avgCurrent > maxCurrentA,
     },
     charging: {
       chargeCurrentA, chargeTimeMin, totalChargeCurrentA, chargerWattsW,
