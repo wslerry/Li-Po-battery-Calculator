@@ -84,6 +84,140 @@
       <div class="results" id="results" hidden></div>
     </div>
 
+    <section class="card guide">
+      <h2>📖 How to Read Your Battery Label</h2>
+      <p>
+        LiPo batteries use a compact label format that tells you everything you need to know.
+        A typical label looks like this:
+      </p>
+      <p class="label-example"><strong>4S 2200mAh 35C</strong></p>
+      <table class="ref-table">
+        <thead>
+          <tr><th>Marking</th><th>Meaning</th><th>Example</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>4S</strong></td><td>4 cells wired in <em>Series</em> — multiplies voltage</td><td>4 &times; 3.7&nbsp;V = 14.8&nbsp;V nominal</td></tr>
+          <tr><td><strong>2200mAh</strong></td><td>Capacity in milliampere-hours</td><td>Can deliver 2.2&nbsp;A for 1&nbsp;hour (theoretically)</td></tr>
+          <tr><td><strong>35C</strong></td><td>Discharge rating — safe continuous current multiplier</td><td>2.2&nbsp;Ah &times; 35&nbsp;C = 77&nbsp;A max continuous</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card guide">
+      <h2>🔑 Key Terms</h2>
+      <table class="ref-table">
+        <thead>
+          <tr><th>Term</th><th>Definition</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>S (Series count)</strong></td><td>Number of cells connected in series. Each cell adds its nominal voltage. A 3S LiPo = 3 &times; 3.7&nbsp;V = 11.1&nbsp;V.</td></tr>
+          <tr><td><strong>P (Parallel count)</strong></td><td>Number of cells connected in parallel — increases capacity (mAh) but not voltage. This calculator assumes 1P; multiply capacity for parallel packs.</td></tr>
+          <tr><td><strong>mAh (Capacity)</strong></td><td>Milliampere-hours. How much energy the pack stores. 1000&nbsp;mAh = 1&nbsp;Ah.</td></tr>
+          <tr><td><strong>C-rating (Discharge)</strong></td><td>The maximum safe <em>continuous</em> current, expressed as a multiple of capacity. Exceeding it causes overheating, puffing, and fire risk.</td></tr>
+          <tr><td><strong>C-rate (Charge)</strong></td><td>The safe charging current, expressed as a multiple of capacity. <strong>1C is the standard safe maximum for LiPo.</strong> Charging at 2C or above requires manufacturer confirmation.</td></tr>
+          <tr><td><strong>DoD (Depth of Discharge)</strong></td><td>Usable capacity percentage before you must stop. Discharging beyond 80% DoD repeatedly shortens pack life significantly.</td></tr>
+          <tr><td><strong>Nominal voltage</strong></td><td>The &ldquo;nameplate&rdquo; voltage under normal load — the number printed on the pack.</td></tr>
+          <tr><td><strong>Full charge voltage</strong></td><td>The voltage at 100% state-of-charge. Your charger&rsquo;s CV phase targets this.</td></tr>
+          <tr><td><strong>Storage voltage</strong></td><td>Ideal voltage for long-term storage (~50% charge). Storing at full charge degrades the cells.</td></tr>
+          <tr><td><strong>Cutoff voltage</strong></td><td>Absolute minimum per cell. Dropping below this causes irreversible damage and is a fire hazard when recharging.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card guide">
+      <h2>⚡ Safe LiPo Charging &mdash; Electrical Engineer&rsquo;s Checklist</h2>
+      <p class="safety-intro">
+        Lithium polymer batteries store enormous energy in a small package. When treated correctly they are safe and reliable.
+        The rules below are non-negotiable. This calculator exists to help you stay within them.
+      </p>
+
+      <div class="safety-rules">
+        <div class="safety-rule">
+          <span class="safety-num">1</span>
+          <div>
+            <strong>Charge at 1C or below unless the manufacturer explicitly states otherwise.</strong>
+            For a 2200&nbsp;mAh pack, that means 2.2&nbsp;A max. Higher rates generate heat, accelerate aging, and can cause thermal runaway.
+          </div>
+        </div>
+        <div class="safety-rule">
+          <span class="safety-num">2</span>
+          <div>
+            <strong>Always use a balance charger.</strong>
+            Balance charging monitors each cell individually and keeps them within &plusmn;0.01&nbsp;V of each other. An unbalanced pack is a ticking bomb.
+          </div>
+        </div>
+        <div class="safety-rule">
+          <span class="safety-num">3</span>
+          <div>
+            <strong>Never leave charging batteries unattended.</strong>
+            Most LiPo fires start during charging. Stay in the room. Keep a smoke detector nearby.
+          </div>
+        </div>
+        <div class="safety-rule">
+          <span class="safety-num">4</span>
+          <div>
+            <strong>Charge in a fire-safe container.</strong>
+            Use a LiPo safety bag, an ammo can (with the seal removed), or a ceramic/stone surface. Never charge on carpet, wood, or near flammables.
+          </div>
+        </div>
+        <div class="safety-rule">
+          <span class="safety-num">5</span>
+          <div>
+            <strong>Set the correct cell count and chemistry on your charger.</strong>
+            Charging a 3S pack on a 4S setting will overcharge every cell to 5.6&nbsp;V &mdash; catastrophic failure is guaranteed. Double-check before you plug in.
+          </div>
+        </div>
+        <div class="safety-rule">
+          <span class="safety-num">6</span>
+          <div>
+            <strong>Never discharge below the cutoff voltage.</strong>
+            For LiPo: 3.0&nbsp;V/cell under load, 3.2&nbsp;V/cell resting. Over-discharged cells develop internal copper dendrites that cause internal shorts when recharged.
+          </div>
+        </div>
+        <div class="safety-rule">
+          <span class="safety-num">7</span>
+          <div>
+            <strong>Store at storage voltage (3.8&nbsp;V/cell for LiPo).</strong>
+            Full charge storage degrades the electrolyte. Storing fully discharged is equally destructive. Aim for 3.8&nbsp;V/cell (~50&nbsp;%).
+          </div>
+        </div>
+        <div class="safety-rule">
+          <span class="safety-num">8</span>
+          <div>
+            <strong>Inspect packs before every use.</strong>
+            Puffed, dented, or punctured cells must be discharged and disposed of. Never charge a physically damaged LiPo.
+          </div>
+        </div>
+      </div>
+
+      <div class="safety-note warn-box">
+        <strong>⚠️ Warning signs of trouble:</strong> excessive heat during charge, hissing sound, swelling/puffing, or voltage that won&rsquo;t rise. If you observe any of these, disconnect immediately and move the battery to a safe area.
+      </div>
+    </section>
+
+    <section class="card guide">
+      <h2>📊 Quick Voltage Reference &mdash; LiPo</h2>
+      <p>Values for standard LiPo chemistry (3.7&nbsp;V nominal, 4.2&nbsp;V full charge).</p>
+      <table class="ref-table">
+        <thead>
+          <tr><th>Cells</th><th>Nominal (V)</th><th>Full Charge (V)</th><th>Storage (V)</th><th>Cutoff (V)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1S</td><td>3.7</td><td>4.2</td><td>3.8</td><td>3.0</td></tr>
+          <tr><td>2S</td><td>7.4</td><td>8.4</td><td>7.6</td><td>6.0</td></tr>
+          <tr><td>3S</td><td>11.1</td><td>12.6</td><td>11.4</td><td>9.0</td></tr>
+          <tr><td>4S</td><td>14.8</td><td>16.8</td><td>15.2</td><td>12.0</td></tr>
+          <tr><td>5S</td><td>18.5</td><td>21.0</td><td>19.0</td><td>15.0</td></tr>
+          <tr><td>6S</td><td>22.2</td><td>25.2</td><td>22.8</td><td>18.0</td></tr>
+          <tr><td>8S</td><td>29.6</td><td>33.6</td><td>30.4</td><td>24.0</td></tr>
+          <tr><td>12S</td><td>44.4</td><td>50.4</td><td>45.6</td><td>36.0</td></tr>
+        </tbody>
+      </table>
+      <p class="note">
+        For other chemistries, use the calculator above — select your chemistry and cell count to see exact values.
+      </p>
+    </section>
+
     <footer>
       <p>Build with &#9829; by <a href="https://lerryws.xyz">wslerry</a> &middot; &copy; <span id="year"></span></p>
     </footer>

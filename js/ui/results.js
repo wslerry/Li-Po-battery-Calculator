@@ -72,6 +72,11 @@ export function renderResults(container, r) {
     metric('Total charge current', round(r.charging.totalChargeCurrentA, 2), 'A'),
     metric('Required charger', round(r.charging.chargerWattsW, 0), 'W'),
   ]));
+  if (r.charging.chargeSafety && r.charging.chargeSafety.message) {
+    sections[sections.length - 1].appendChild(
+      note(r.charging.chargeSafety.message, r.charging.chargeSafety.unsafe),
+    );
+  }
 
   if (r.sizing) {
     sections.push(section('Sizing (for target current)', [

@@ -49,8 +49,108 @@ input, select, button { font: inherit; }
 .results-hint { color: var(--text-muted); }
 
 .theme-toggle { background: transparent; border: 1px solid var(--border); border-radius: 999px; padding: var(--space-2) var(--space-3); color: var(--text); cursor: pointer; }
+
+/* ── Guide / education sections ── */
+.guide h2 { font-size: 1.05rem; margin-bottom: var(--space-3); }
+.guide > p { color: var(--text-muted); font-size: .9rem; margin: 0 0 var(--space-3); }
+
+.label-example {
+  text-align: center;
+  font-size: 1.3rem;
+  background: var(--surface-2);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3);
+  margin-bottom: var(--space-3);
+  letter-spacing: .04em;
+}
+
+/* ── Reference tables ── */
+.ref-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .85rem;
+}
+.ref-table thead { border-bottom: 2px solid var(--border); }
+.ref-table th {
+  text-align: left;
+  padding: var(--space-2) var(--space-3);
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--text-muted);
+}
+.ref-table td {
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.ref-table tr:last-child td { border-bottom: none; }
+.ref-table td:first-child { white-space: nowrap; font-weight: 600; }
+
+/* ── Safety rules checklist ── */
+.safety-intro {
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: var(--space-4) !important;
+}
+
+.safety-rules {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.safety-rule {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+
+.safety-num {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--primary-text);
+  font-size: .75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+
+.safety-rule div {
+  font-size: .88rem;
+  color: var(--text);
+  line-height: 1.55;
+}
+
+/* ── Warning callout ── */
+.warn-box {
+  background: #fff8e6;
+  border: 1px solid #e8c547;
+  border-radius: var(--radius-sm);
+  padding: var(--space-3) var(--space-4);
+  color: #8a6100;
+  font-size: .85rem;
+  line-height: 1.5;
+}
+:root[data-theme="dark"] .warn-box,
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .warn-box {
+    background: #2a2310;
+    border-color: #5c4500;
+    color: #e0a52e;
+  }
+}
+
 footer { color: var(--text-muted); font-size: .85rem; text-align: center; margin-top: var(--space-5); }
 
 @media (max-width: 440px) {
   .grid, .metrics { grid-template-columns: 1fr; }
+  .ref-table { font-size: .78rem; }
+  .ref-table th, .ref-table td { padding: var(--space-2); }
 }

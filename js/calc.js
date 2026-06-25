@@ -52,6 +52,25 @@ export function airlineClass(wh) {
   return 'prohibited';
 }
 
+export function chargeSafety(chargeC, chemId) {
+  const safeLimit = chemId === 'lifepo4' ? 2 : 1;
+  if (chargeC > safeLimit) {
+    return {
+      unsafe: true,
+      safeLimit,
+      message: `Charge rate ${chargeC}C exceeds the ${safeLimit}C safe maximum for this chemistry. Higher rates risk overheating, cell puffing, and thermal runaway.`,
+    };
+  }
+  if (chargeC > 0.8 * safeLimit) {
+    return {
+      unsafe: false,
+      safeLimit,
+      message: `Charge rate ${chargeC}C is within the ${safeLimit}C limit but near the edge. For longest pack life, charge at 0.5–0.7C when time allows.`,
+    };
+  }
+  return { unsafe: false, safeLimit, message: null };
+}
+
 // Composes all outputs into grouped object for the UI.
 export function computeBattery(pack, inputs) {
   const { chem, cells, capacityMah } = pack;
@@ -77,7 +96,10 @@ export function computeBattery(pack, inputs) {
       runFullMin: run.fullMin,
       exceedsMax: avgCurrent > maxCurrentA,
     },
-    charging: { chargeCurrentA, chargeTimeMin, totalChargeCurrentA, chargerWattsW },
+    charging: {
+      chargeCurrentA, chargeTimeMin, totalChargeCurrentA, chargerWattsW,
+      chargeSafety: chargeSafety(chargeC, chem.id),
+    },
     sizing,
     planning: { storageV: v.storageV, cutoffV: v.cutoffV, airline: airlineClass(wh) },
   };
